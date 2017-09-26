@@ -1,4 +1,4 @@
-app.controller('todo_list_controller', function($scope) {
+app.controller('todo_list_controller', function($scope, todo) {
   var imagePath = 'assets/img/blue_nocheck.png';
 
   $scope.todos = [];

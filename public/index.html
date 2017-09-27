@@ -1,0 +1,74 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="assets/css/angular-material.min.css">
+</head>
+<body ng-app="todo-app" ng-controller="main_controller" ng-cloak>
+
+
+
+<div layout="row">
+  <md-toolbar md-scroll-shrink ng-if="true" >
+    <div class="md-toolbar-tools">
+      <h3>
+        <span>{{title}}</span>
+      </h3>
+    </div>
+  </md-toolbar>
+</div>
+
+<div flex ng-controller="todo_list_controller">
+  <form ng-model="form" ng-submit="addToDo()">
+    <md-content class="md-no-momentum">
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Task</label>
+        <md-icon md-svg-src="assets/img/icons/ic_playlist_add_black_24px.svg" class="name"></md-icon>
+        <input ng-model="task.new" type="text">
+      </md-input-container>
+    </md-content>
+  </form>
+
+  <md-content >
+    <md-list>
+      <md-list-item class="sm-3-line" ng-repeat="item in todos">
+        <md-checkbox ng-model="item.status" aria-label="Task Status" ng-change="chage_status(item)">
+        </md-checkbox>
+        <p>{{item.task}}</p>
+        <md-button class="md-icon-button" aria-label="More" ng-click="delete(item.id)">
+          <md-icon md-svg-icon="assets/img/icons/ic_delete_black_24px.svg"></md-icon>
+        </md-button>
+        <md-divider inset></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
+
+
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-animate.min.js"></script>
+  <script src="assets/js/angular-aria.min.js"></script>
+  <script src="assets/js/angular-messages.min.js"></script>
+  <script type="text/javascript" src="assets/js/svg-assets-cache.js"></script>
+
+
+  <!-- Angular Material Library -->
+  <script src="assets/js/angular-material.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+
+  <!-- Services -->
+  <script type="text/javascript" src="app/services/requestHandler.js"></script>
+  <script type="text/javascript" src="app/services/todo.js"></script>
+
+  <!-- Controllers  -->
+
+  <script type="text/javascript" src="app/controller/main_controller.js"></script>
+  <script type="text/javascript" src="app/controller/todo_list_controller.js"></script>
+
+
+  
+</body>
+</html>

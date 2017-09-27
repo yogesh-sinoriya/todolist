@@ -1,1 +1,0 @@
-var app = angular.module('todo-app', ['ngMaterial', 'material.svgAssetsCache', 'ngStorage']);
